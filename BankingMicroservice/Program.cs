@@ -12,7 +12,10 @@ builder.Logging.AddEventSourceLogger();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+});
 
 builder.Services.AddTransient<ICardService, CardService>();
 builder.Services.AddTransient<IActionsService, ActionsService>();
@@ -24,7 +27,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "BankingMicroservice v1");
+        //c.SwaggerEndpoint("/swagger/v1/swagger.json", "BankingMicroservice v1");
+    });
+
+    // Redirect to /swagger
+    app.Use(async (context, next) =>
+    {
+        if (context.Request.Path == "/")
+        {
+            context.Response.Redirect("/swagger");
+            return;
+        }
+        await next();
     });
 }
 

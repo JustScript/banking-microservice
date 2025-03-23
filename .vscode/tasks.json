@@ -44,7 +44,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "bankingmicroservicetesttask:dev",
+                "tag": "bankingmicroservice:dev",
                 "target": "base",
                 "dockerfile": "${workspaceFolder}/BankingMicroservice/Dockerfile",
                 "context": "${workspaceFolder}",
@@ -61,7 +61,7 @@
                 "build"
             ],
             "dockerBuild": {
-                "tag": "bankingmicroservicetesttask:latest",
+                "tag": "bankingmicroservice:latest",
                 "dockerfile": "${workspaceFolder}/BankingMicroservice/Dockerfile",
                 "context": "${workspaceFolder}",
                 "platform": {
