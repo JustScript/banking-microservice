@@ -1,5 +1,5 @@
 using System.Net;
-using BankingMicroservice.Models.Middlewares;
+using BankingMicroservice.Middlewares;
 using BankingMicroservice.Services;
 using Microsoft.AspNetCore.Diagnostics;
 

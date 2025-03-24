@@ -24,10 +24,12 @@ namespace BankingMicroservice.DTO
 
         public bool Validate()
         {
-            return !string.IsNullOrWhiteSpace(UserId) 
-                && !string.IsNullOrWhiteSpace(CardId) 
-                && Regex.IsMatch(UserId, @"^[a-zA-Z0-9]*$")
-                && Regex.IsMatch(CardId, @"^[a-zA-Z0-9]*$");
+            _isValid = !string.IsNullOrWhiteSpace(UserId) 
+                    && !string.IsNullOrWhiteSpace(CardId) 
+                    && Regex.IsMatch(UserId, @"^[a-zA-Z0-9]*$")
+                    && Regex.IsMatch(CardId, @"^[a-zA-Z0-9]*$");
+
+            return _isValid.Value;
         }
     }
 }

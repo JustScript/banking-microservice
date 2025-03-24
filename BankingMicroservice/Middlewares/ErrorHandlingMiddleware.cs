@@ -1,4 +1,4 @@
-namespace BankingMicroservice.Models.Middlewares
+namespace BankingMicroservice.Middlewares
 {
     public class ErrorHandlingMiddleware
     {
